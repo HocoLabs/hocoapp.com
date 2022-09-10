@@ -1,9 +1,10 @@
 module.exports = {
   siteMetadata: {
     title: `Hoco`,
-    description: `It's hoco!`,
-    author: `@hoco`,
-    siteUrl: `https://hocoapp.com/`,
+    description: `Your homecoming and home-completing home companion`,
+    twitterUsername: `@HocoLabs`,
+    image: `/gatsby-icon.png`,
+    siteUrl: `https://www.hocoapp.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

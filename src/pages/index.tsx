@@ -3,11 +3,10 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
-import Seo from "../components/seo"
+import { SEO } from "../components/seo"
 
 const IndexPage = () => (
   <Layout>
-    <Seo title="Home" />
     <h1>Hi people</h1>
     <p>As you can see, we're a work in progress!</p>
     <p>Now go do something awesome.</p>
@@ -23,6 +22,10 @@ const IndexPage = () => (
 
     </p>
   </Layout>
+)
+
+export const Head = () => (
+  <SEO title="Home" />
 )
 
 export default IndexPage
