@@ -4,6 +4,9 @@ import { HocoSpin } from "./HocoSpin"
 import { Phone } from "./Phone"
 import { Waitlist } from "./Waitlist"
 
+// This page is so bad and could likely use an overhaul
+// But it gets the job done
+
 export const UnderConstruction = () => {
   return (
     <div className={styles.underConstruction}>
