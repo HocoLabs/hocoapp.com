@@ -4,23 +4,14 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import { SEO } from "../components/seo"
+import { HocoSpin } from "../components/UnderConstruction/HocoSpin"
+import * as styles from "./index.module.css"
 
 const IndexPage = () => (
   <Layout>
-    <h1>Hi people</h1>
-    <p>As you can see, we're a work in progress!</p>
-    <p>Now go do something awesome.</p>
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
-      quality={95}
-      formats={["auto", "webp", "avif"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
-    />
-    <p>
-
-    </p>
+    <div className={styles.hocoSpin}>
+      <HocoSpin />
+    </div>
   </Layout>
 )
 
