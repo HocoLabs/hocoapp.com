@@ -1,0 +1,28 @@
+.phoneContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phone {
+  filter: invert(100%);
+  width: 100%;
+  height: 100%;
+}
+
+.phoneContent {
+  padding: 2rem;
+  width: 100%;
+  height: 100%;
+  margin-left: -100%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .phone {
+    display: none;
+  }
+
+  .phoneContent {
+    margin-left: 0;
+  }
+}

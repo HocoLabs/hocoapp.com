@@ -1,0 +1,26 @@
+.underConstruction {
+  display: flex;
+  flex-grow: 1;
+  flex-basis: 0;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 2rem;
+}
+
+.underConstructionColumn {
+  display: flex;
+  flex-basis: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.phoneText {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+@media only screen and (max-width: 1200px) {
+  .underConstruction {
+    flex-wrap: wrap;
+  }
+}
