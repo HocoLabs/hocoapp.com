@@ -10,6 +10,7 @@ import * as styles from "./index.module.css"
 import LetterH from "../images/letter-h.png"
 import LetterO from "../images/letter-o.png"
 import LetterC from "../images/letter-c.png"
+import { Headline } from "../components/Headline"
 
 const IndexPage = () => (
   <Layout className={styles.home}>
@@ -25,7 +26,7 @@ const IndexPage = () => (
           <div className={styles.headlineImageBackground} />
         </div>
         <div className={styles.headlineText}>
-          <Typography variant="h3">Your home companion</Typography>
+          <Typography variant="h3"><Headline /></Typography>
         </div>
       </div>
       <div className={styles.waitlist}>
