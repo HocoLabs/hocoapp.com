@@ -38,7 +38,7 @@ export const Waitlist = () => {
       <CardContent>
         <Typography>Join the waitlist for early access to Hoco!</Typography>
         <div className={styles.waitlistInput}>
-          <Input onChange={(e) => setEmail(e.target.value)} value={email} />
+          <Input onChange={(e) => setEmail(e.target.value)} value={email} disabled={loading} />
           <Button color="primary" variant="contained" onClick={onSubmit} disabled={email.trim().length === 0 || loading}>Join</Button>
         </div>
         {responseDisplay}

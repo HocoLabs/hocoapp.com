@@ -1,3 +1,4 @@
+import fetch from 'node-fetch'
 import { GatsbyFunctionRequest, GatsbyFunctionResponse } from "gatsby"
 import { GoogleSpreadsheet, GoogleSpreadsheetWorksheet } from "google-spreadsheet"
 
