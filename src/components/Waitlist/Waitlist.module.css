@@ -1,10 +1,10 @@
 .waitlist {
   text-align: center;
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .waitlistInput {
-  margin-top: 1rem;
+  margin: 1rem 0;
   display: flex;
   justify-content: center;
 }

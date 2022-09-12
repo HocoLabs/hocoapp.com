@@ -34,7 +34,7 @@ export default async function handler(
   res: GatsbyFunctionResponse
 ) {
   if (!req.body.email || !validateEmail(req.body.email)) {
-    return res.status(422).json({ success: false, error: "Email is not valid" })
+    return res.status(422).json({ success: false, error: "Email is not valid." })
   }
 
   const email = req.body.email.toLowerCase().trim()
@@ -59,7 +59,7 @@ export default async function handler(
     let waitlist = Object.values(sheets).find(s => /^\'?input\'?$/.test(s.a1SheetName.toLowerCase()))
 
     if (!waitlist) {
-      const error = "Could not find waitlist resource"
+      const error = "Could not find waitlist resource."
       await sendSlackMessage(`ERROR: ${error}`)
       res.status(500).json({ success: false, error })
       return
@@ -70,7 +70,7 @@ export default async function handler(
       const rowEmail = row.email
 
       if (email && rowEmail.trim().toLowerCase() === email) {
-        return res.status(422).json({ success: false, error: "Email is already on the waitlist" })
+        return res.status(422).json({ success: false, error: "Email is already on the waitlist." })
       }
     }
 
@@ -92,7 +92,7 @@ export default async function handler(
     }
 
     await sendSlackMessage(`\`${req.body.email}\` joined the waitlist!`)
-    res.status(200).json({ success: true })
+    res.status(200).json({ success: true, message: "Thanks for joining the waitlist!" })
   } catch (e) {
     const error = e.toString()
     await sendSlackMessage(`ERROR: ${error}`)

@@ -6,11 +6,12 @@ import * as styles from "./Waitlist.module.css"
 export const Waitlist = () => {
   const [email, setEmail] = React.useState('')
   const [loading, setLoading] = React.useState(false)
-  const [response, setResponse] = React.useState({})
+  const [response, setResponse] = React.useState<{ [key: string]: any } | null>(null)
 
   async function onSubmit(e) {
     e.preventDefault()
     setLoading(true)
+    setResponse(null)
 
     const r = await window
       .fetch(`/api/waitlist`, {
@@ -28,14 +29,19 @@ export const Waitlist = () => {
 
   console.log({ response })
 
+  const responseDisplay = !!response
+    ? <Typography variant="caption" color={response.error ? "error" : "textPrimary"}>{response.error || response.message}</Typography>
+    : null
+
   return (
     <Card className={styles.waitlist}>
       <CardContent>
-        <Typography>Join the waitlist for early access to Hoco</Typography>
+        <Typography>Join the waitlist for early access to Hoco!</Typography>
         <div className={styles.waitlistInput}>
           <Input onChange={(e) => setEmail(e.target.value)} value={email} />
           <Button color="primary" variant="contained" onClick={onSubmit} disabled={email.trim().length === 0 || loading}>Join</Button>
         </div>
+        {responseDisplay}
       </CardContent>
     </Card>
   )
