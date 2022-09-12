@@ -49,7 +49,7 @@ export default async function handler(
       "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
       "project_id": process.env.WAITLIST_AUTH_PROJECT_ID,
       "private_key_id": process.env.WAITLIST_AUTH_KEY_ID,
-      "private_key": process.env.WAITLIST_AUTH_KEY,
+      "private_key": process.env.WAITLIST_AUTH_KEY?.replace(/\\\\n/g, `\n`),
       "client_email": process.env.WAITLIST_AUTH_CLIENT_EMAIL,
       "client_id": process.env.WAITLIST_AUTH_CLIENT_ID,
       "client_x509_cert_url": process.env.WAITLIST_AUTH_CLIENT_CERT_URL,
@@ -61,7 +61,7 @@ export default async function handler(
 
     if (!waitlist) {
       const error = "Could not find waitlist resource."
-      await sendSlackMessage(`ERROR: ${error}`)
+      await sendSlackMessage(`ERROR (\`${email}\`): ${error}`)
       res.status(500).json({ success: false, error })
       return
     }
@@ -86,7 +86,7 @@ export default async function handler(
       email: req.body.email.trim(),
     }
 
-    if (process.env.NODE_ENV === "development") {
+    if (process.env.NODE_ENV === "development" && false) {
       console.log(`SHEET: ${JSON.stringify(data)}`)
     } else {
       await waitlist.addRow(data)
@@ -96,7 +96,7 @@ export default async function handler(
     res.status(200).json({ success: true, message: "Thanks for joining the waitlist!" })
   } catch (e) {
     const error = e.toString()
-    await sendSlackMessage(`ERROR: ${error}`)
+    await sendSlackMessage(`ERROR (\`${email}\`): ${error}`)
     res.status(500).json({ success: false, error })
   }
 }
