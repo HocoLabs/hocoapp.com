@@ -26,7 +26,7 @@ const IndexPage = () => (
           <div className={styles.headlineImageBackground} />
         </div>
         <div className={styles.headlineText}>
-          <Typography variant="h3"><Headline /></Typography>
+          <Typography variant="h4"><Headline /></Typography>
         </div>
       </div>
       <div className={styles.waitlist}>
