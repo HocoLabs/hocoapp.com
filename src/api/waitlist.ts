@@ -40,6 +40,15 @@ export default async function handler(
 
   const email = req.body.email.toLowerCase().trim()
 
+  let privateKey = ""
+  if (process.env.WAITLIST_AUTH_KEY) {
+    if (process.env.WAITLIST_AUTH_KEY[0] === '"') {
+      privateKey = JSON.parse(process.env.WAITLIST_AUTH_KEY)
+    } else {
+      privateKey = process.env.WAITLIST_AUTH_KEY
+    }
+  }
+
   try {
     const doc = new GoogleSpreadsheet(process.env.WAITLIST_ID)
     await doc.useServiceAccountAuth({
@@ -49,7 +58,7 @@ export default async function handler(
       "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
       "project_id": process.env.WAITLIST_AUTH_PROJECT_ID,
       "private_key_id": process.env.WAITLIST_AUTH_KEY_ID,
-      "private_key": process.env.WAITLIST_AUTH_KEY?.replace(/\\n/gm, `\n`),
+      "private_key": privateKey,
       "client_email": process.env.WAITLIST_AUTH_CLIENT_EMAIL,
       "client_id": process.env.WAITLIST_AUTH_CLIENT_ID,
       "client_x509_cert_url": process.env.WAITLIST_AUTH_CLIENT_CERT_URL,
