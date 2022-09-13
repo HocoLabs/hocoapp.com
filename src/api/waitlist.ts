@@ -49,7 +49,7 @@ export default async function handler(
       "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
       "project_id": process.env.WAITLIST_AUTH_PROJECT_ID,
       "private_key_id": process.env.WAITLIST_AUTH_KEY_ID,
-      "private_key": process.env.WAITLIST_AUTH_KEY?.replace(/\\\\n/g, `\n`),
+      "private_key": process.env.WAITLIST_AUTH_KEY?.replace(/\\n/g, `\n`),
       "client_email": process.env.WAITLIST_AUTH_CLIENT_EMAIL,
       "client_id": process.env.WAITLIST_AUTH_CLIENT_ID,
       "client_x509_cert_url": process.env.WAITLIST_AUTH_CLIENT_CERT_URL,
