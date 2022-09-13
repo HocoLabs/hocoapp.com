@@ -13,6 +13,8 @@ const ITERATIONS = [
   "mfort",
   "llection",
   "ming",
+  "nsultant",
+  "nscience",
 ]
 
 const createTypistComponents = () => {
