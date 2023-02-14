@@ -1,18 +1,19 @@
-import { Button, Typography } from "@material-ui/core"
 import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
 import Layout from "../components/layout"
 import { SEO } from "../components/seo"
-import { UnderConstruction } from "../components/UnderConstruction"
 import { Waitlist } from "../components/Waitlist"
 import * as styles from "./index.module.css"
-import HocoLogo from "../images/hoco-name-transparent.png"
-import { Headline } from "../components/Headline"
 
 const IndexPage = () => (
   <Layout className={styles.home}>
     <div className={styles.waitlistContainer}>
-      <img className={styles.hocoLogo} src={HocoLogo} />
+      <StaticImage
+        src="../images/hoco-name-transparent.png"
+        alt="Hoco Logo"
+        placeholder="blurred"
+        className={styles.hocoLogo}
+      />
       <div className={styles.waitlist}>
         <Waitlist />
       </div>
