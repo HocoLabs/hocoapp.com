@@ -6,29 +6,13 @@ import { SEO } from "../components/seo"
 import { UnderConstruction } from "../components/UnderConstruction"
 import { Waitlist } from "../components/Waitlist"
 import * as styles from "./index.module.css"
-
-import LetterH from "../images/letter-h.png"
-import LetterO from "../images/letter-o.png"
-import LetterC from "../images/letter-c.png"
+import HocoLogo from "../images/hoco-name-transparent.png"
 import { Headline } from "../components/Headline"
 
 const IndexPage = () => (
   <Layout className={styles.home}>
     <div className={styles.waitlistContainer}>
-      <div className={styles.headline}>
-        <div className={styles.headlineImage}>
-          <div className={styles.headlineImageLetters}>
-            <img className={styles.headlineImageLetter} src={LetterH} />
-            <img className={styles.headlineImageLetter} src={LetterO} />
-            <img className={styles.headlineImageLetter} src={LetterC} />
-            <img className={styles.headlineImageLetter} src={LetterO} />
-          </div>
-          <div className={styles.headlineImageBackground} />
-        </div>
-        <div className={styles.headlineText}>
-          <Typography variant="h4"><Headline /></Typography>
-        </div>
-      </div>
+      <img className={styles.hocoLogo} src={HocoLogo} />
       <div className={styles.waitlist}>
         <Waitlist />
       </div>
@@ -40,7 +24,7 @@ const IndexPage = () => (
 )
 
 export const Head = () => (
-  <SEO title="Home" />
+  <SEO />
 )
 
 export default IndexPage

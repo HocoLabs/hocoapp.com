@@ -27,8 +27,6 @@ export const Waitlist = () => {
     setResponse(r)
   }
 
-  console.log({ response })
-
   const responseDisplay = !!response
     ? <Typography variant="caption" color={response.error ? "error" : "textPrimary"}>{response.error || response.message}</Typography>
     : null
@@ -36,7 +34,7 @@ export const Waitlist = () => {
   return (
     <Card className={styles.waitlist}>
       <CardContent>
-        <Typography>Join the waitlist for early access to Hoco!</Typography>
+        <Typography>Join the waitlist for early access!</Typography>
         <div className={styles.waitlistInput}>
           <Input onChange={(e) => setEmail(e.target.value)} value={email} disabled={loading} placeholder="Email" />
           <Button color="primary" variant="contained" onClick={onSubmit} disabled={email.trim().length === 0 || loading}>Join</Button>
